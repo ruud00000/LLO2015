@@ -1,0 +1,20 @@
+{
+  "rules": {
+    "loapp_users": {
+      "$user_id": {
+        ".write": "$user_id === auth.uid.replace('custom:', '')",
+        ".read": true
+      }
+    },
+    "leerling": {
+      ".read": "auth != null && auth.level === 'docent'",
+      ".write": "auth != null && auth.level === 'docent'"
+    },
+
+
+    ".read": true,
+    ".write": true
+
+
+  }
+}
