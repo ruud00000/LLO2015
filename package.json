@@ -1,0 +1,15 @@
+{
+  "name": "leerlingopmerkingapp-2015",
+  "private": false,
+  "version": "0.0.0",
+  "description": "LeerlingopmerkingenApp Het Assink - 2015",
+  "repository": "https://github.com/ruud00000/LLO2015.git",
+  "license": "MIT",
+
+  "scripts": {
+
+    "prestart": "npm install",
+    "start": "http-server -a localhost -p 8000 -c-1 ./app"
+
+   }
+}

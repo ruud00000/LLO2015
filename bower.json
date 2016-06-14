@@ -1,0 +1,23 @@
+{
+  "name": "leerlingopmerkingapp-2015",
+  "description": "LeerlingopmerkingenApp Het Assink - 2015",
+  "main": "index.html",
+  "authors": [
+    "Ruud Naastepad <ruudnaastepad@hotmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "LLO2015"
+  ],
+  "homepage": "https://github.com/ruud00000/LLO2015",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
