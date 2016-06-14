@@ -14,9 +14,9 @@ angular
 
             vm.leerlingen = leerlingService.findAll();
 
-            vm.replace = function(aantopm, item) {
+            vm.replace = function(aantopm, klaskort, naam) {
                 
-                return leerlingService.replace(aantopm, item);
+                return leerlingService.replace(aantopm, klaskort, naam);
             }
             
             vm.getOpmerkingenClass = function (aantopm) {

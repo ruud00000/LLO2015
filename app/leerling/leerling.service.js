@@ -31,14 +31,15 @@ angular
                 return leerlingen;
             };
 
-            var replace = function(aantopm, item) {
+            var replace = function(aantopm, klaskort, naam) {
                 var aantal = aantopm;
                 if (aantal==undefined || aantal==0) { aantal = 0; }
-                var aantal = '  '+aantal;
+                aantal = '  '+aantal;
                 aantal = aantal.substr(aantal.length-2,2)+' ';
-                aantal = aantal.replace(/ /g, '&nbsp;');
-                aantal = $sce.trustAsHtml(aantal+item.replace(/ /g, '&nbsp;'))
-                return aantal;
+                // aantal = aantal.replace(/ /g, '&nbsp;');
+                // var item = $sce.trustAsHtml(aantal+klaskort+' '+naam)
+                var item = aantal+klaskort+' '+naam;
+                return $sce.trustAsHtml(item);
             }
             
  

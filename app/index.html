@@ -111,14 +111,17 @@
 <div ng-controller="LeerlingController as leerlingController">
     <form id="opmForm" accept-charset='UTF-8'>
                     <h3>Leerlingopmerkingenapp</h3>
-                    <label>* Leerling:</label>
                     <br/>
+                    
+                    <label for="search">Filter: </label>
+                    <input type="text" name="search" id="search" placeholder="Bijv. 6V of H5H1 of VEEA of Amber" ng-model="search"/>
+                    <br/><br/>
 
-
+                    <label for="Leerling">* Leerling:</label>
                     <select name='Leerling' id='Leerling' size='1'>
                         <option value='Maak een keuze...' selected disabled>Maak een keuze...</option>
-                        <option ng-repeat="leerlingOption in leerlingController.leerlingen | orderBy: 'klaskort+naam'"
-                                ng-bind-html="leerlingController.replace(leerlingOption.aantalopm, leerlingOption.leerlingdropdown)"
+                        <option ng-repeat="leerlingOption in leerlingController.leerlingen | orderBy: 'klaskort+naam' | filter: search"
+                                ng-bind-html="leerlingController.replace(leerlingOption.aantalopm, leerlingOption.klaskort, leerlingOption.naam)"
                                 ng-class="leerlingController.getOpmerkingenClass(leerlingOption.aantalopm)"
                                 value={{leerlingOption.leerlingdropdown}}></option>
                     </select>
@@ -400,12 +403,12 @@
                               <option value='128061 Willem Holdijk            (H6V3)'>128061 Willem Holdijk            (H6V3)</option>
                           </select>-->
                     <br/>
-                    <br/>
-                    <label>* Opmerking:</label>
+                    
+                    <label for="Opmerking">* Opmerking:</label>
                     <br/>
                     <textarea placeholder="Jouw opmerking over deze leerling..." id="Opmerking"></textarea><br/>
                     <br/>
-                    <label>Bestanden:</label>
+                    <label for="Bestanden">Bestanden:</label>
                     <br/>
                     <textarea placeholder="Map en naam van bestand(en) bij deze opmerking..." id="Bestanden"></textarea><br/>
                     <br/>
