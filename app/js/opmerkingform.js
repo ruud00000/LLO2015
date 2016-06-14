@@ -136,18 +136,19 @@ $(document).ready(function runScript(){
 			// ref.offAuth(authDataCallback); // dat is dubbelop, is al geregistreerd bij ref.onAuth()!
 			// event.preventDefault();
 		}
-	);	
+	);
 
 	$("#Leerling").change(function changeHandler(){
 		$("#Opmerking").val("");
 		$("#Bestanden").val("");
 		$(this).css("background-color", "lightblue");
-		var leerlingNummer = this.value.substring(0,6).trim();
-		
 
-		if (this.value !== "Maak een keuze..." && 
-			this.value !== "5H:" &&
-			this.value !== "6V:") {
+		var option = $("#Leerling").val();
+		var leerlingNummer = option.substring(0,6).trim();
+		
+		if (option.innerHTML !== "Maak een keuze..." &&
+			option.innerHTML !== "5H:" &&
+			option.innerHTML !== "6V:") {
 			getOpmerkingen(leerlingNummer);
 		} else {
 			$("#opmerkingcontainer").hide();
@@ -155,6 +156,7 @@ $(document).ready(function runScript(){
 			$("#opmtablebody").html("");
 		}
 	});
+
 
 	$("#submit").click(function submitClickHandler(){
 		var _leerling = $("#Leerling").val();
@@ -215,23 +217,35 @@ $(document).ready(function runScript(){
 				}
 			});
 	};
-				
+
 	function getOpmerkingen(leerling) {
 		leerling_fburl = firebaseurl + "/leerling";
 		var leerlingenRef = new Firebase(leerling_fburl);
 		var leerlingRef = leerlingenRef.child(leerling).child("opmerkingen");
 
-		leerlingRef.once("value", 
+		leerlingRef.once("value",
 			function getHandler(snapshot) {
 				populateOpmContainer(snapshot);
 				switchOpmContainer(snapshot);
+				setOpmerkingenCount(leerling, leerlingenRef.child(leerling), snapshot);
 			}, 
 			function errorHandler(errorObject) {
 				alert("Ophalen van opmerkingen is mislukt: " + errorObject.code);
 			}
 		);
 	};
-	
+
+	function setOpmerkingenCount(leerling, leerlingRef, snapshot) {
+		var count = snapshot.numChildren();
+        var leerlingNummer = leerling.substring(0,6).trim();
+        var updatedObj = {
+            "aantalopm": count};
+
+        leerlingRef.update(updatedObj, function updateHandler(data) {
+            if (data) { alert(data); success = false; }
+        });
+    };
+
 	function populateOpmContainer(snapshot) {
 		$("#opmtablebody").html("");
 		snapshot.forEach(function(data) {

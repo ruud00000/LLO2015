@@ -1,3 +1,4 @@
+
 @import url(https://fonts.googleapis.com/css?family=Fauna+One|Muli);
 
 #Door, #Code, #login, #logout, .loginlabel{
@@ -33,7 +34,9 @@
 	float: right;
 }
 
-
+select {
+	font-family: 'Courier New', monospace;
+}
 
 table {
 	width: 350px;
@@ -131,4 +134,12 @@ select{
 	height:40px;
 	margin-top:10px;
 	border-radius:3px;
+}
+
+.geenOpmerkingen{
+	color:darkred;
+}
+
+.welOpmerkingen{
+	color:inherit;
 }
