@@ -1,0 +1,26 @@
+#logo {
+    display:inline-block;
+    float:right;
+    margin: 25px 15px 0px 0px;
+}
+
+#page-header {
+    margin-top: 0px;
+}
+
+#appTitle {
+    display:inline-block;
+    margin-left:15px;
+}
+
+#loginForm {
+    max-width: 300px;
+}
+
+#opmerkingDataCel {
+    min-width: 200px;
+}
+
+#bestandenDataCel {
+    min-width: 100px;
+}

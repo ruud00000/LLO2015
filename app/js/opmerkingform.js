@@ -252,7 +252,7 @@ $(document).ready(function runScript(){
 			var cel1 = data.val().opmerking;
 			var cel2 = data.val().bestanden;
 			var cel3 = data.val().door;
-			var tr = "<tr><td>"+cel1+"</td><td>"+cel2+"</td><td>"+cel3+"</td></tr>";
+			var tr = "<tr><td id='opmerkingDataCel'>"+cel1+"</td><td id='bestandenDataCel'>"+cel2+"</td><td>"+cel3+"</td></tr>";
 			$("#opmtablebody").prepend(tr);    // nieuwste bovenaan zetten met prepend ipv append
 		});	
 	};
