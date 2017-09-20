@@ -1,9 +1,13 @@
 {
-  "firebase": "resplendent-heat-2801",
   "database": {
     "rules": "database.rules.json"
   },
   "hosting": {
-    "public": "app"
+    "public": "app",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
   }
 }
